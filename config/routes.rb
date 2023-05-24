@@ -3,8 +3,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/recipes' => 'recipe#index'
-  root 'recipe#index'
 
+  # request to see all instances
+  get '/recipes' => 'recipe#index', as: 'recipes'
+  # landing page
+  root 'recipe#index'
+  # request to add a new instance will need a form to track the user input and to save the ne instance to the database
+  get '/recipes/new' => 'recipe#new', as: 'new'
+  post '/recipes' => 'recipe#create'
+
+  # request to see one instance
   get '/recipes/:id' => 'recipe#show', as: 'recipe'
+
+
 end

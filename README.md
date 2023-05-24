@@ -19,8 +19,16 @@ branch: show
 read -> get -> show
 - displays one instance in the database
 - use params to dynamically pass the id for each instance
-## new
+
 ## create
+  branch: create
+
+  ## new
+  read -> get -> new
+  - displays an html form
+
+  ## create
+
 ## edit
 ## update
 ## destroy

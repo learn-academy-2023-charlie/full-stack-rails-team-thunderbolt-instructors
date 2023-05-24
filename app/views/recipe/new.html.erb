@@ -1,0 +1,13 @@
+<h2>Add your recipe</h2>
+<%= form_with model: @recipe do |form| %>
+
+  <%= form.label :chef %>
+  <%= form.text_field :chef %>
+
+  <br>
+  <%= form.label :cuisine %>
+  <%= form.text_field :cuisine %>
+
+  <br>
+  <%= form.submit 'Add Recipe' %>
+<% end %>
