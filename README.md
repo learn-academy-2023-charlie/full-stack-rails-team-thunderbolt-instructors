@@ -1,3 +1,6 @@
+## helpful terminal commands
+- $ rails routes -E
+
 ## setup
 
 ## Process
@@ -5,11 +8,17 @@
 
 ## index
 branch: index
+read -> get -> index
+- displays all instances in the database
 - controller
 - route
 - view
 
 ## show
+branch: show
+read -> get -> show
+- displays one instance in the database
+- use params to dynamically pass the id for each instance
 ## new
 ## create
 ## edit

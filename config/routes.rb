@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/recipes' => 'recipe#index'
   root 'recipe#index'
+
+  get '/recipes/:id' => 'recipe#show', as: 'recipe'
 end
