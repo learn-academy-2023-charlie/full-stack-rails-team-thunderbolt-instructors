@@ -1,0 +1,9 @@
+<h1>Charlie ShmorgishBoard of Recipes</h1>
+<ul>
+  <% @recipes.each do |recipe|%>
+    <li>
+      <%= recipe.chef %> <%= recipe.cuisine %> 
+    </li>
+
+  <% end%>
+</ul>
