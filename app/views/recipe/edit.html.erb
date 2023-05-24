@@ -1,0 +1,13 @@
+<h2>Edit a Recipe</h2>
+<%= form_with model: @recipe, method: :patch do |form| %>
+
+  <%= form.label :chef %>
+  <%= form.text_field :chef %>
+
+  <br>
+  <%= form.label :cuisine %>
+  <%= form.text_field :cuisine %>
+
+  <br>
+  <%= form.submit 'Update Recipe' %>
+<% end %>

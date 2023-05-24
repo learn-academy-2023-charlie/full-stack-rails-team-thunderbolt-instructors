@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/recipes/new' => 'recipe#new', as: 'new'
   post '/recipes' => 'recipe#create'
 
+  get '/recipes/:id/edit' => 'recipe#edit', as: 'edit_recipe'
+  patch '/recipes/:id' => 'recipe#update'
+  
   # request to see one instance
   get '/recipes/:id' => 'recipe#show', as: 'recipe'
 

@@ -21,6 +21,21 @@ class RecipeController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+    if @recipe.valid?
+      redirect_to recipe_path(@recipe)
+    else
+      redirect_to edit_recipe_path
+    end
+  end
+
+
   # strong params to state what attributes can be created
   private
   def recipe_params
