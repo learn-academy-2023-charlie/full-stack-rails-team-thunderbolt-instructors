@@ -35,6 +35,9 @@ After first team member has performed actions for empty github repo and rails ap
 - Click on the project link in the slack channel
 - Join the team created by first team member
 - Clone the repo onto desktop directory
+- Install all gems and dependencies: $ bundle
+- Create a db: $ rails db:create
+***NOTE: The instances for each database is only on your local machine. Each member will have to create instances for their database.***
 
 ## Process
 ***NOTE: Create a branch for each feature added to the application***
