@@ -1,2 +1,8 @@
 <h2> <%= @recipe.chef %> </h2>
 <h2> <%= @recipe.cuisine %> </h2>
+<br/>
+<%= button_to 'Delete Recipe', recipe_path(@recipe), method: :delete %>
+<br />
+<%= link_to 'Home', '/' %>
+<br />
+<%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
