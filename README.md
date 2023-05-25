@@ -163,7 +163,7 @@ update -> patch/put -> update
 
 ## branch: destroy
 delete -> delete -> destroy
-- reference I used: [Destroy Method](https://learn.co/lessons/delete-forms-rails)
+- reference I used: [Destroy Method(https://human-se.github.io/rails-demos-n-deets-2021/demos/destroy-actions/)
 - controller: contains the destroy method that will remove an instance from the database
 - routes: defines the url with `delete` and calls the destroy method
 - views: no file needed, views handled by redirect_to helper method
