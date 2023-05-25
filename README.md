@@ -83,7 +83,6 @@ read -> get -> index
   </ul>
 ```
 
-
 ## branch: show
 read -> get -> show
 - controller: contains show method that holds the active record queries to show a specific instance, therefore, needs a param to identify that instance. 
@@ -129,7 +128,8 @@ read -> get -> edit
 - controller: contains the edit method that will specify which instance to display on the html form
 - routes: defines the url with `get` and calls the edit method
 - views:
-## update
+### update
+update -> patch/put -> update
 - controller: contains the update method that will save the changes to the database
 - routes: defines the url with `patch` and calls the update method
 - views: no file needed, views handled by redirect_to helper method
