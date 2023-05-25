@@ -18,7 +18,7 @@ Rails App - Only one team member performs these actions.
 - $ `cd <app_name>`
 - Create a database: $ `rails db:create`
 - Add the git remote add origin command from the empty repo in GitHub. This command will allow github to start tracking changes to your rails proect. The command will be under the heading `…or push an existing repository from the command line`
-  - Example --> git remote add origin https://github.com/learn-academy-2023-charlie/full-stack-rails-team-thunderbolt-instructors.git
+  - Example --> `git remote add origin https://github.com/learn-academy-2023-charlie/full-stack-rails-team-thunderbolt-instructors.git`
 - Create a main branch: $ `git checkout -b main`
 - Make an initial commit to the main branch:
   - $ git status
