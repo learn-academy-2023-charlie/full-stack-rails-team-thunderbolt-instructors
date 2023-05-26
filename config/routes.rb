@@ -24,4 +24,9 @@ Rails.application.routes.draw do
   # request to see one instance
   get '/recipes/:id' => 'recipe#show', as: 'recipe'
 
+  # association requests
+
+  # request to see all instructions associated with a specific recipe
+  get '/recipes/:id/instructions' => 'instruction#index', as: 'process'
+
 end

@@ -167,6 +167,69 @@ delete -> delete -> destroy
 - additional tool needed for destroy:
   - button to perform delete request
   - button will be placed on show.html.erb
+  - `button_to` takes in three arguments string for title of button, path to the view to be displayed, and method to state the http verb
 ```html.erb
   <%= button_to 'Delete Recipe', recipe_path(@recipe), method: :delete %>
 ```  
+
+## display all records in ascending order
+```rb
+  def index
+    @recipes = Recipe.all.order('id')
+  end
+```
+
+## table on views with links on cuisine
+```html.erb
+  <table border=1>
+    <tr>
+      <th>Chef</th>
+      <th>Cuisine</th>
+    </tr>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td>
+          <%= recipe.chef %>
+        </td>
+        <td>
+          <%= link_to recipe.cuisine, recipe_path(recipe) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+```
+
+## Associations
+- $ rails generate model Instruction ingredients:text process:text recipe_id:integer
+- establish has_many/belongs_to relationships on the model class
+- $ rails db:migrate
+- $ rails g controller Instruction
+- $ rails c
+> suri = Recipe.find 2
+> suri.instructions.create(ingredients: '1 egg white, 1/2 cup granulated sugar plus more for the top crust, 1/2 cup brown sugar packed, 3 tablespoons all-purpose flour, 1 teaspoon ground cinnamon, 1/4 teaspoon ground ginger, 1/4 teaspoon ground nutmeg, 6 to 7 cups tart apples peeled and thinly sliced, 1 tablespoon lemon juice, 2 9-inch pie crusts thawed (homemade or from 1 box store-bought), 1 tablespoon butter',process: 'Preheat oven to 375 degrees. In a small mixing bowl, mix the white sugar, brown sugar, flour, cinnamon, ginger, and nutmeg. Set aside. In a large mixing bowl, toss apples with lemon juice. Sprinkle in sugar mixture and toss to evenly coat. Lay one pie crust in bottom of 9-inch pie pan, trimming the pastry even with the edge of the pan. Spoon in the apple mixture into the pie and place butter piece on top. Roll the remaining crust out. Set crust over the filling and trim as necessary to fit the top of the pie. Seal, flute the edges, and cut slits in the pastry. Beat egg white until foamy; brush over pastry. Sprinkle with sugar. Cover edges loosely with foil. Bake for 25 minutes. Remove foil and bake until crust is golden brown and pie filling is bubbling, about 20 minutes more. Cool on wire rack.')
+- app/controllers/instruction_controller.rb
+```rb
+  def index
+    @recipe = Recipe.find(params[:id])
+    @instructions = @recipe.instructions
+  end
+```
+- routes
+# request to see all instructions associated with a specific recipe
+`get '/recipes/:id/instructions' => 'instruction#index', as: 'process'`
+
+- views/instruction/index.html.erb
+```html.erb
+  <% @instructions.each do |instruction|%>
+    <h2>
+      Ingredients: <%= instruction.ingredients %>  
+    </h2>
+    <h2>
+      Process: <%= instruction.process %>
+    </h2>
+  <% end%>
+```
+- update link for cuisine on the recipe index page to go to instruction index page
+`<%= link_to recipe.cuisine, process_path(recipe) %>`
+
+

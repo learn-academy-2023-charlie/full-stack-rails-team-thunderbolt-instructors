@@ -1,0 +1,11 @@
+<h2> <%= @recipe.chef %>'s <%= @recipe.cuisine %> </h2>
+<% @instructions.each do |instruction|%>
+  <h2>
+    Ingredients: <%= instruction.ingredients %>  
+  </h2>
+  <h2>
+    Process: <%= instruction.process %>
+  </h2>
+<% end%>
+
+<%= link_to 'Home', '/' %>
