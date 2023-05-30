@@ -1,7 +1,8 @@
 class RecipeController < ApplicationController
   # displays all the instances
   def index
-    @recipes = Recipe.all
+    # displays in ascending order
+    @recipes = Recipe.all.order('id')
   end
 
   # displays one instance
