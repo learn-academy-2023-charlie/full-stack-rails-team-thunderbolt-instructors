@@ -1,11 +1,17 @@
 <h2> <%= @recipe.chef %>'s <%= @recipe.cuisine %> </h2>
 <% @instructions.each do |instruction|%>
   <h2>
-    Ingredients: <%= instruction.ingredients %>  
+    Ingredients: <% instruction.ingredients.split(/,/).each do |step| %>
+      <li> <%= step %> </li>
+    <% end %>
   </h2>
   <h2>
-    Process: <%= instruction.process %>
+    Process: <% instruction.process.split('.').each do |step| %>
+      <li> <%= step %> </li>
+    <% end %>
   </h2>
 <% end%>
 
-<%= link_to 'Home', '/' %>
+<%= button_to 'Home', '/', method: :get %>
+<br />
+<%= button_to 'Edit Title', edit_recipe_path(@recipe), method: :get %>
